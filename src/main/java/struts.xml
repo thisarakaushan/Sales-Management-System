@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" 
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+	
+<struts>
+
+	<!--Endpoints for customers...................................................................................-->
+
+	<!--Get endpoints for customers-->
+	
+    <package extends="json-default" namespace="/customers" name="customer">
+    	
+        <action name="get-customers" method="allCustomers" 
+        		class="com.highradius.salesManagement.actions.CustomerActions">
+            
+            <result name="success" type="json">
+                <param name="">Customer Data</param>
+            </result>
+            
+            <result name="error" type="json">
+                <param name="">error.jsp</param>
+            </result>
+        </action>
+        
+        <action name="get-customer-byid" method="customerById" 
+        		class="com.highradius.salesManagement.actions.CustomerActions">
+        		
+        	<interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result name="success" type="json">
+                <param name="">Customer Data</param>
+            </result>
+            
+            <result name="error" type="json">
+                <param name="">error.jsp</param>
+            </result>
+        </action>
+        
+        <action name="get-customers-bycountry" method="customersByCountry" 
+        		class="com.highradius.salesManagement.actions.CustomerActions">
+            
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result name="success" type="json">
+                <param name="">Customer Data</param>
+            </result>
+            
+            <result name="error" type="json">
+                <param name="">error.jsp</param>
+            </result>
+        </action>
+
+
+	<!--Insert endpoints for customers-->
+	
+        <action name="insert-customer" method="insertCustomer" 
+        		class="com.highradius.salesManagement.actions.CustomerActions">
+        		
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result type="json" name="added">
+            	<param name="">Customer Details</param>
+            </result>
+            
+            <result type="json" name="error"></result>
+            <result name="error">error.jsp</result>
+        </action>
+        
+        <action name="insert-multiple-customers" method="insertMultipleCustomers" 
+        		class="com.highradius.salesManagement.actions.CustomerActions">
+        		
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result type="json" name="added">
+            	<param name="">Customer Details</param>
+            </result>
+            
+            <result type="json" name="error"></result>
+            <result name="error">error.jsp</result>
+        </action>
+        
+
+	<!--Update endpoints for customers-->
+
+        <action name="update-customer" method="updateCustomer" 
+        		class="com.highradius.salesManagement.actions.CustomerActions">
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result type="json" name="updated">
+            	<param name="">Customer Details</param>
+            </result>
+            
+            <result type="json" name="error"></result>
+            <result  name="error">error.jsp</result>
+        </action>
+        
+
+	<!--Delete endpoints for customers-->
+		
+        <action name="delete-customer-byid" method="deleteCustomerById" 
+        		class="com.highradius.salesManagement.actions.CustomerActions">
+        		
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result type="json" name="deleted">
+            	<!-- <param name="">Customer Details</param> -->
+            </result>
+            
+            <result type="json" name="error"></result>
+            <!-- <result name="error">error.jsp</result> -->
+        </action>
+        
+        <action name="delete-customer-bycountry" method="deleteCustomersByCountry" 
+        		class="com.highradius.salesManagement.actions.CustomerActions">
+        		
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result type="json" name="deleted">
+            	<!-- <param name="">Customer Details</param> -->
+            </result>
+            
+            <result type="json" name="error"></result>
+            <!-- <result name="error">error.jsp</result> -->
+        </action>
+    </package>
+    
+    
+    <!--Endpoints for employees...................................................................................-->
+
+	<!--Get endpoints for employees-->
+	
+    <package extends="json-default" namespace="/employees" name="employee">
+    	
+        <action name="get-employees" method="allEmployees" 
+        		class="com.highradius.salesManagement.actions.EmployeeActions">
+            
+            <result name="success" type="json">
+                <param name="">Employee Data</param>
+            </result>
+            
+            <result name="error" type="json">
+                <param name="">error.jsp</param>
+            </result>
+        </action>
+        
+        <action name="get-employee-byid" method="employeeById" 
+        		class="com.highradius.salesManagement.actions.EmployeeActions">
+        		
+        	<interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result name="success" type="json">
+                <param name="">Employee Data</param>
+            </result>
+            
+            <result name="error" type="json">
+                <param name="">error.jsp</param>
+            </result>
+        </action>
+        		
+        			<!-- getting the photo -->
+        			
+        <!-- <action name="get-employee-byid-with-photo" method="employeeByIdWithPhoto" 
+		        class="com.highradius.salesManagement.actions.EmployeeActions">
+		        
+		    <result name="success" type="tiles">employeeProfile</result>
+		    <result name="error" type="json">
+		        <param name="">error.jsp</param>
+		    </result>
+		</action> -->
+
+
+	<!--Insert endpoints for employees-->
+	
+        <action name="insert-employee" method="insertEmployee" 
+        		class="com.highradius.salesManagement.actions.EmployeeActions">
+        		
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result type="json" name="added">
+            	<param name="">Employee Details</param>
+            </result>
+            
+            <result type="json" name="error"></result>
+            <result name="error">error.jsp</result>
+        </action>
+        
+        <action name="insert-multiple-employees" method="insertMultipleEmployees" 
+        		class="com.highradius.salesManagement.actions.EmployeeActions">
+        		
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result type="json" name="added">
+            	<param name="">Employee Details</param>
+            </result>
+            
+            <result type="json" name="error"></result>
+            <result name="error">error.jsp</result>
+        </action>
+        
+        			<!-- insertion of photo -->
+        			
+        <!-- <action name="insert-employee-with-photo" method="addEmployeeWithPhoto" 
+        		class="com.highradius.salesManagement.actions.EmployeeActions">
+        
+		    <interceptor-ref name="json">
+		        <param name="enableSMD">true</param>
+		    </interceptor-ref>
+		    
+		    <result type="json" name="added">
+		        <param name="">Employee Details</param>
+		    </result>
+		    
+		    <result type="json" name="error"></result>
+		    <result name="error">error.jsp</result>
+		</action> -->
+
+	<!--Update endpoints for employees-->
+
+        <action name="update-employee" method="updateEmployee" 
+        		class="com.highradius.salesManagement.actions.EmployeeActions">
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result type="json" name="updated">
+            	<param name="">Employee Details</param>
+            </result>
+            
+            <result type="json" name="error"></result>
+            <result  name="error">error.jsp</result>
+        </action>
+        
+
+	<!--Delete endpoints for employees-->
+		
+        <action name="delete-employee-byid" method="deleteEmployeeById" 
+        		class="com.highradius.salesManagement.actions.EmployeeActions">
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result type="json" name="deleted">
+            	<param name="">Employee Details</param>
+            </result>
+            
+            <result type="json" name="error"></result>
+            <!-- <result name="error">error.jsp</result> -->
+        </action>
+        
+    </package>
+    
+    
+    <!--Endpoints for orders......................................................................................-->
+
+	<!--Get endpoints for orders-->
+	
+    <package extends="json-default" namespace="/orders" name="order">
+    	
+        <action name="get-orders" method="allOrders" 
+        		class="com.highradius.salesManagement.actions.OrderActions">
+            
+            <result name="success" type="json">
+                <param name="">Customer Data</param>
+            </result>
+            
+            <result name="error" type="json">
+                <param name="">error.jsp</param>
+            </result>
+        </action>
+        
+        <action name="get-order-byid" method="orderById" 
+        		class="com.highradius.salesManagement.actions.OrderActions">
+        		
+        	<interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result name="success" type="json">
+                <param name="">Customer Data</param>
+            </result>
+            
+            <result name="error" type="json">
+                <param name="">error.jsp</param>
+            </result>
+        </action>
+        
+        <action name="get-order-bycustomerid" method="ordersByCustomerId" 
+        		class="com.highradius.salesManagement.actions.OrderActions">
+        	
+        	<interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result name="success" type="json">
+                <param name="">Customer Data</param>
+            </result>
+            
+            <result name="error" type="json">
+                <param name="">error.jsp</param>
+            </result>
+        </action>
+        
+        <action name="get-order-bydate" method="ordersByOrderDate" 
+        		class="com.highradius.salesManagement.actions.OrderActions">
+            
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result name="success" type="json">
+                <param name="">Customer Data</param>
+            </result>
+            
+            <result name="error" type="json">
+                <param name="">error.jsp</param>
+            </result>
+        </action>
+
+		<action name="get-order-byemployeeid" method="ordersByEmployeeId" 
+        		class="com.highradius.salesManagement.actions.OrderActions">
+            
+            <result name="success" type="json">
+                <param name="">Customer Data</param>
+            </result>
+            
+            <result name="error" type="json">
+                <param name="">error.jsp</param>
+            </result>
+        </action>
+
+	<!--Insert endpoints for orders-->
+	
+        <action name="insert-order" method="insertOrder" 
+        		class="com.highradius.salesManagement.actions.OrderActions">
+        		
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result type="json" name="added">
+            	<param name="">Customer Details</param>
+            </result>
+            
+            <result type="json" name="error"></result>
+            <result name="error">error.jsp</result>
+        </action>
+        
+        <action name="insert-multiple-orders" method="insertMultipleOrders" 
+        		class="com.highradius.salesManagement.actions.OrderActions">
+        		
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result type="json" name="added">
+            	<param name="">Customer Details</param>
+            </result>
+            
+            <result type="json" name="error"></result>
+            <result name="error">error.jsp</result>
+        </action>
+        
+
+	<!--Update endpoints for orders-->
+
+        <action name="update-order-byid" method="updateOrderByOrderId" 
+        		class="com.highradius.salesManagement.actions.OrderActions">
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result type="json" name="updated">
+            	<param name="">Customer Details</param>
+            </result>
+            
+            <result type="json" name="error"></result>
+            <result  name="error">error.jsp</result>
+        </action>
+        
+        <action name="update-order-byshipperid" method="updateOrderByShipperId" 
+        		class="com.highradius.salesManagement.actions.OrderActions">
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result type="json" name="updated">
+            	<param name="">Customer Details</param>
+            </result>
+            
+            <result type="json" name="error"></result>
+            <result  name="error">error.jsp</result>
+        </action>
+
+	<!--Delete endpoints for orders-->
+		
+        <action name="delete-order-byid" method="deleteOrderByOrderId" 
+        		class="com.highradius.salesManagement.actions.OrderActions">
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result type="json" name="deleted">
+            	<param name="">Customer Details</param>
+            </result>
+            
+            <result type="json" name="error"></result>
+            <!-- <result name="error">error.jsp</result> -->
+        </action>
+        
+        <action name="delete-order-byemployeeid" method="deleteOrdersByEmployeeId" 
+        		class="com.highradius.salesManagement.actions.OrderActions">
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result type="json" name="deleted">
+            	<param name="">Customer Details</param>
+            </result>
+            
+            <result type="json" name="error"></result>
+            <result name="error">error.jsp</result>
+        </action>
+        
+        <action name="delete-order-bycustomerid" method="deleteOrdersByCustomerId" 
+        		class="com.highradius.salesManagement.actions.OrderActions">
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            
+            <result type="json" name="deleted">
+            	<param name="">Customer Details</param>
+            </result>
+            
+            <result type="json" name="error"></result>
+            <result name="error">error.jsp</result>
+        </action>
+        
+    </package>
+    
+    
+    <!--Endpoints for orderDetails.............................................................................-->
+
+	<!--Get endpoints for orderDetails-->
+	
+	<package extends="json-default" namespace="/orderDetails" name="orderDetails">
+	
+	    <action name="get-orderdetails-byid" method="orderDetailById"
+	            class="com.highradius.salesManagement.actions.OrderDetailsActions">
+	            
+	        <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+	
+	        <result name="success" type="json">
+	            <param name="">Order Detail Data</param>
+	        </result>
+	
+	        <result name="error" type="json">
+	            <param name="">error.jsp</param>
+	        </result>
+	    </action>
+	
+	    <action name="get-orderdetails-byids" method="orderDetailsByIds"
+	            class="com.highradius.salesManagement.actions.OrderDetailsActions">
+	          
+	        <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+	
+	        <result name="success" type="json">
+	            <param name="">Order Detail Data</param>
+	        </result>
+	
+	        <result name="error" type="json">
+	            <param name="">error.jsp</param>
+	        </result>
+	    </action>
+	
+	
+	    <!-- Insert endpoints for orderDetails -->
+	
+	    <action name="insert-orderdetails" method="insertOrderDetail"
+	            class="com.highradius.salesManagement.actions.OrderDetailsActions">
+	
+	        <interceptor-ref name="json">
+	            <param name="enableSMD">true</param>
+	        </interceptor-ref>
+	
+	        <result type="json" name="added">
+	            <param name="">Order Detail Data</param>
+	        </result>
+	
+	        <result type="json" name="error"></result>
+	        <!-- <result name="error">error.jsp</result> -->
+	    </action>
+	    
+	
+	    <!-- Update endpoints for orderDetails -->
+	
+	    <action name="update-orderdetail-byid" method="updateOrderDetailById"
+	            class="com.highradius.salesManagement.actions.OrderDetailsActions">
+	
+	        <interceptor-ref name="json">
+	            <param name="enableSMD">true</param>
+	        </interceptor-ref>
+	
+	        <result type="json" name="updated">
+	            <param name="">Order Detail Data</param>
+	        </result>
+	
+	        <result type="json" name="error"></result>
+	        <!-- <result name="error">error.jsp</result> -->
+	    </action>
+	
+	    <action name="update-orderdetail-byproductid" method="updateOrderDetailByProductId"
+	            class="com.highradius.salesManagement.actions.OrderDetailsActions">
+	
+	        <interceptor-ref name="json">
+	            <param name="enableSMD">true</param>
+	        </interceptor-ref>
+	
+	        <result type="json" name="updated">
+	            <param name="">Order Detail Data</param>
+	        </result>
+	
+	        <result type="json" name="error"></result>
+	        <!-- <result name="error">error.jsp</result> -->
+	    </action>
+	
+	    <action name="update-orderdetail-byorderid" method="updateOrderDetailByOrderId"
+	            class="com.highradius.salesManagement.actions.OrderDetailsActions">
+	
+	        <interceptor-ref name="json">
+	            <param name="enableSMD">true</param>
+	        </interceptor-ref>
+	
+	        <result type="json" name="updated">
+	            <param name="">Order Detail Data</param>
+	        </result>
+	
+	        <result type="json" name="error"></result>
+	        <!-- <result name="error">error.jsp</result> -->
+	    </action>
+	
+	
+	    <!-- Delete endpoints for orderDetails -->
+	
+	    <action name="delete-orderdetail-byorderid" method="deleteOrderDetailsByOrderId"
+	            class="com.highradius.salesManagement.actions.OrderDetailsActions">
+	
+	        <interceptor-ref name="json">
+	            <param name="enableSMD">true</param>
+	        </interceptor-ref>
+	
+	        <result type="json" name="deleted">
+	            <param name="">Order Detail Data</param>
+	        </result>
+	
+	        <result type="json" name="error"></result>
+	        <!-- <result name="error">error.jsp</result> -->
+	    </action>
+	
+	    <action name="delete-orderdetail-byorderids" method="deleteOrderDetailsByOrderIds"
+	            class="com.highradius.salesManagement.actions.OrderDetailsActions">
+	
+	        <interceptor-ref name="json">
+	            <param name="enableSMD">true</param>
+	        </interceptor-ref>
+	
+	        <result type="json" name="deleted">
+	            <param name="">Order Detail Data</param>
+	        </result>
+	
+	        <result type="json" name="error"></result>
+	        <!-- <result name="error">error.jsp</result> -->
+	    </action>
+	
+	</package>
+    
+</struts>

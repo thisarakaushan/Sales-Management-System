@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- CustomerDao Bean -->
+	<bean id="customerDaoImpl" class="com.highradius.salesManagement.daoImpl.CustomerDaoImpl" />
+
+	<!-- CustomerService Bean -->
+	<bean id="customerServiceImpl" 
+			class="com.highradius.salesManagement.serviceImpl.CustomerServiceImpl">
+		<property name="customerDao" ref="customerDaoImpl" />
+	</bean>
+	
+	
+	<!-- EmployeeDao Bean -->
+	<bean id="employeeDaoImpl" class="com.highradius.salesManagement.daoImpl.EmployeeDaoImpl" />
+
+	<!-- EmployeeService Bean -->
+	<bean id="employeeServiceImpl" 
+			class="com.highradius.salesManagement.serviceImpl.EmployeeServiceImpl">
+		<property name="employeeDao" ref="employeeDaoImpl" />
+	</bean>
+	
+	
+	<!-- OrderCustomerDao Bean -->
+	<bean id="orderDaoImpl" class="com.highradius.salesManagement.daoImpl.OrderDaoImpl" />
+
+	<!-- OrderService Bean -->
+	<bean id="orderServiceImpl" 
+			class="com.highradius.salesManagement.serviceImpl.OrderServiceImpl">
+		<property name="orderDao" ref="orderDaoImpl" />
+	</bean>
+	
+	
+	<!-- OrderDetailsDao Bean -->
+	<bean id="orderDetailDaoImpl" class="com.highradius.salesManagement.daoImpl.OrderDetailDaoImpl" />
+
+	<!-- OrderDetailsService Bean -->
+	<bean id="orderDetailServiceImpl" 
+			class="com.highradius.salesManagement.serviceImpl.OrderDetailServiceImpl">
+		<property name="orderDetailDao" ref="orderDetailDaoImpl" />
+	</bean>
+	
+	
+</beans>
