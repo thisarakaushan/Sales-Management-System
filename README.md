@@ -13,9 +13,9 @@ Follow these steps to set up and run the project on your local machine:
 - Java JDK (version 8)
 - [Apache Tomcat]() (version 8.5)
 - MySQL database
-- [Struts]()
-- [Hibernate]()
-- [Spring]() Framework
+- [Struts](http://www.java2s.com/Code/Jar/s/Downloadstrutscore1310jar.htm#google_vignette)
+- [Hibernate](https://jar-download.com/download-handling.php)
+- [Spring](http://www.java2s.com/example/jar/s/download-springboot153releasejar-file.html) Framework
 
 ### Requirments
 
@@ -166,11 +166,13 @@ Suppliers:
 
 2. Open the project in your preferred Java development environment (e.g., Eclipse, IntelliJ).
 
-3. Configure your database connection details in the `applicationContext.xml` and  `hibernate.cfg.xml` files.
+3. Map the methods and control the user request from `struts.xml` file.
 
-4. Build and deploy the project on your Apache Tomcat server.
+4. Configure your database connection details in the `applicationContext.xml` and  `hibernate.cfg.xml` files.
 
-5. Access the application by navigating to `http://localhost:8080/Sales-Management-System` in your web browser.
+5. Build and deploy the project on your Apache Tomcat server.
+
+6. Access the application by navigating to `http://localhost:8080/Sales-Management-System` in your web browser.
 
 ### Features  
 
