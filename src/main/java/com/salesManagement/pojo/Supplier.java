@@ -8,16 +8,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "customers")
-public class Customer {
-	
+@Table(name = "suppliers")
+public class Supplier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customer_id")
-    private int customerId;
+    @Column(name = "supplier_id")
+    private int supplierId;
 
-    @Column(name = "customer_name")
-    private String customerName;
+    @Column(name = "supplier_name")
+    private String supplierName;
 
     @Column(name = "contact_name")
     private String contactName;
@@ -33,33 +32,25 @@ public class Customer {
 
     @Column(name = "country")
     private String country;
-    
-    @Column(name = "is_deleted")
-    private int isDeleted;
-    
-	// Getters and setters
-	public int getIsDeleted() {
-		return isDeleted;
+
+    @Column(name = "phone")
+    private String phone;
+
+    // Getters and setters
+	public int getSupplierId() {
+		return supplierId;
 	}
 
-	public void setIsDeleted(int isDeleted) {
-		this.isDeleted = isDeleted;
+	public void setSupplierId(int supplierId) {
+		this.supplierId = supplierId;
 	}
 
-	public int getCustomerId() {
-		return customerId;
+	public String getSupplierName() {
+		return supplierName;
 	}
 
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
-	}
-
-	public String getCustomerName() {
-		return customerName;
-	}
-
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
+	public void setSupplierName(String supplierName) {
+		this.supplierName = supplierName;
 	}
 
 	public String getContactName() {
@@ -102,11 +93,19 @@ public class Customer {
 		this.country = country;
 	}
 
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
 	@Override
 	public String toString() {
-		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", contactName=" + contactName
+		return "Supplier [supplierId=" + supplierId + ", supplierName=" + supplierName + ", contactName=" + contactName
 				+ ", address=" + address + ", city=" + city + ", postalCode=" + postalCode + ", country=" + country
-				+ "]";
+				+ ", phone=" + phone + "]";
 	}
-    
+
 }
